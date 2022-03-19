@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'pages/LoginPage.dart';
-import 'Rout/Routes.dart';
 
+import 'pages/LoginPage.dart';
+import 'pages/HomePage.dart';
+
+import 'Rout/Routes.dart';
 
 
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/login",
       routes: {
         "/": (context) => LogPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.logRoute: (context) => LogPage(),
       },
     );
