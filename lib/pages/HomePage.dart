@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../data/dataFiles.dart';
+import '../data/data.dart';
+import '../data/dataList.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -11,10 +13,20 @@ class HomePage extends StatelessWidget {
         title: Text("Лист ресурсов"),
       ),
       body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemCount: storeItems.length ,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Service(data: Data.samples[index]);
+                   },
+                ),
+              );
+            },
             child: Card(
               child: Stack(
                 alignment: FractionalOffset.bottomCenter,
@@ -37,7 +49,8 @@ class HomePage extends StatelessWidget {
               ),
             ),
           );
-        },),
+        },
+      ),
     );
   }
 }
