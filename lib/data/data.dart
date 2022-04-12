@@ -57,12 +57,23 @@ class _RecipeDetailState extends State<Service> {
                 padding: const EdgeInsets.all(7.0),
                 itemCount: widget.data.datas.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final ingredient = widget.data.datas[index];
+                  final text = widget.data.datas[index];
 
                   // 9
-                  return Text('${ingredient.quantity} '
-                      '${ingredient.measure} '
-                      '${ingredient.name}');
+                  return Text('${text.quantity} '
+                      '${text.measure} '
+                      '${text.name}', style: TextStyle(color: Colors.green,    shadows: <Shadow>[
+                    Shadow(
+                      offset: Offset(10.0, 10.0),
+                      blurRadius: 10.0,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    Shadow(
+                      offset: Offset(10.0, 10.0),
+                      blurRadius: 8.0,
+                      color: Color.fromARGB(0, 0, 0, 255),
+                    ),],
+                  ),);
                 },
               ),
             ),
