@@ -2,12 +2,13 @@
 KR project
 
 ### Authorization
-![Image alt](screens/1st.gif)
-
+![Image alt](screens/demo1.gif)
 
 ### View resources
-![Image alt](screens/2nd.gif)
+![Image alt](screens/demo2.gif)
 
+### View services
+![Image alt](screens/demo3.gif)
 
 ### Change grid
-![Image alt](screens/3rd.gif)
+![Image alt](screens/demo4.gif)

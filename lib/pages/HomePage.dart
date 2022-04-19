@@ -1,55 +1,49 @@
 import 'package:flutter/material.dart';
 
-import '../data/dataFiles.dart';
-import '../data/data.dart';
-import '../data/dataList.dart';
+import '../tabs/explorerService.dart';
+import '../tabs/serviceScreen.dart';
 
 
-class HomePage extends StatelessWidget {
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  static List<Widget> pages = <Widget>[
+    ExploreScreen(),
+    RecipesScreen(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
-        title: Text("Лист ресурсов"),
-      ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-        itemCount: storeItems.length ,
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Service(data: Data.samples[index]);
-                   },
-                ),
-              );
-            },
-            child: Card(
-              child: Stack(
-                alignment: FractionalOffset.bottomCenter,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(storeItems[index].itemImage)
-                        )
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 40.0,
-                    color: Colors.indigo,
-                    child: Text(storeItems[index].itemName,
-                      style: TextStyle     (fontWeight: FontWeight.w700, fontSize: 16.0, color: Colors.white),),
-                  )
-                ],
-              ),
-            ),
-          );
-        },
+      body: pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.lens_blur),
+            label: 'Ресурсы',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.lens_outlined),
+            label: 'Сервисы',
+          ),
+
+        ],
       ),
     );
   }

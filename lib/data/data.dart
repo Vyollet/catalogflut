@@ -10,12 +10,12 @@ class Service extends StatefulWidget {
   const Service({Key? key, required this.data}) : super(key: key);
 
   @override
-  _RecipeDetailState createState() {
-    return _RecipeDetailState();
+  _ServiceDetailState createState() {
+    return _ServiceDetailState();
   }
 }
 
-class _RecipeDetailState extends State<Service> {
+class _ServiceDetailState extends State<Service> {
 
   @override
   Widget build(BuildContext context) {
