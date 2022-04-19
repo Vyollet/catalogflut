@@ -1,13 +1,13 @@
 # CatalogFlutter
 KR project
 
-###Authorization
+### Authorization
 ![Image alt](screens/1st.gif)
 
 
-###View resources
+### View resources
 ![Image alt](screens/2nd.gif)
 
 
-###Change grid
+### Change grid
 ![Image alt](screens/3rd.gif)
