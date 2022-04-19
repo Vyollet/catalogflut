@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:catalogflutter/main.dart';
+import 'package:catalogflutter/gears/statusNetwork.dart';
+
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -27,4 +29,19 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  statusNetwork(
+    height : 25, // double: default height
+    width : double.maxFinite, // double: default width
+    color : Colors.redAccent, // Color: default background color
+    lookUpAddress : 'google.com', // String: default site to look up for checking internet connection
+    endOffset : const Offset(0.0, 0.0), // Offset: default animation finish point offset
+    beginOffset : const Offset(0.0, -1.0), // Offset: default animation start point offset
+    animationDuration : const Duration(milliseconds: 200), // Duration: default animation duration
+    // Text: default text
+    title : const Text(
+      'Please check your internet connection',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  );
 }
